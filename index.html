@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A small, type-safe task tracker for keeping the next step in view."
+    />
+    <title>Daymark — a thoughtful task list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Daymark home">
+          <span class="brand-mark" aria-hidden="true">d</span>
+          <span>daymark</span>
+        </a>
+        <span class="topbar-note">A little progress, every day.</span>
+      </header>
+
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR DAILY SPACE</div>
+        <h1 id="page-title">Make room for<br /><span>what matters.</span></h1>
+        <p class="intro">
+          Keep the next step simple. Add a task, then move it forward when
+          you're ready.
+        </p>
+
+        <form class="composer" id="task-form">
+          <label class="sr-only" for="task-title">Task title</label>
+          <input
+            id="task-title"
+            name="title"
+            type="text"
+            maxlength="120"
+            placeholder="What would you like to get done?"
+            autocomplete="off"
+            required
+          />
+          <button class="add-button" type="submit">
+            <span aria-hidden="true">+</span> Add task
+          </button>
+        </form>
+
+        <div class="list-heading">
+          <div>
+            <h2>Your list</h2>
+            <p id="task-count" aria-live="polite">0 tasks</p>
+          </div>
+          <div class="filter-list" id="filters" aria-label="Filter tasks">
+            <button type="button" data-filter="all" aria-pressed="true">
+              All
+            </button>
+            <button type="button" data-filter="todo" aria-pressed="false">
+              To do
+            </button>
+            <button
+              type="button"
+              data-filter="in-progress"
+              aria-pressed="false"
+            >
+              In progress
+            </button>
+            <button type="button" data-filter="done" aria-pressed="false">
+              Done
+            </button>
+          </div>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
+        <p class="empty-state" id="empty-state">
+          Your list is clear. Add a task to get started.
+        </p>
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+      </section>
+
+      <footer class="footer">
+        <span>Made for steady progress.</span>
+        <span>One thing at a time <span aria-hidden="true">✳</span></span>
+      </footer>
+    </main>
+  </body>
+</html>
