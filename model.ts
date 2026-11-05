@@ -12,6 +12,10 @@ let nextId = 1;
 
 // 3. addTask: Appends a new task with unique ID and "todo" status
 export function addTask(tasks: Task[], title: string): Task[] {
+  while (tasks.some((task) => task.id === nextId)) {
+    nextId += 1;
+  }
+
   const newTask: Task = {
     id: nextId++,
     title,
